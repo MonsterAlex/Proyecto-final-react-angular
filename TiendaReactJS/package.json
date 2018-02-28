@@ -1,0 +1,17 @@
+{
+  "name": "aplicacionfinal",
+  "version": "1.0.0",
+  "description": "Tienda creada en ReactJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "Alejandro Reyes Gil",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^4.0.1",
+    "webpack-dev-server": "^3.1.0"
+  }
+}

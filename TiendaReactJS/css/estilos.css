@@ -2,3 +2,16 @@ body{
   background-image: url('../imagenes/login-fondo.jpg');
   background-size: cover;
 }
+
+h1{
+  text-align: center;
+  color: white;
+}
+
+i{
+  color: white;
+}
+
+.btn{
+  background-color: #7DDA5A;
+}

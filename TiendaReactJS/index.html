@@ -2,19 +2,59 @@
 <html>
   <head>
     <meta charset="utf-8">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <title>Formulario de ingreso</title>
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" href="css/estilos.css">
   </head>
 
   <body>
-    <div class="contenedor clearfix">
+    <div class="container">
       <div class="row">
-        <div class="col-10">
+        <div class="col l12">
           <h1>Iniciar Secion</h1>
         </div>
       </div>
+
+      <div class="row">
+        <form>
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col l12">
+                  <i class="material-icons prefix">perm_identity</i>
+                  <input id="usuario" type="text" class="validate">
+                  <label for="usuario">Correo Electronico del usuario</label>
+              </div>
+
+              <div class="input-field col l12">
+                  <i class="material-icons prefix">vpn_key</i>
+                  <input id="contraseña" type="password" class="validate">
+                  <label for="contraseña">Contraseña</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s4 offset-s5">
+                <div class="file-field input-field">
+                    <button class="btn" type="submit" name="action">Ingresar<i class="material-icons right">verified_user</i></button>
+                </div>
+              </div>
+          </div>
+        </form>
+      </div>
     </div>
+
+<!-- Apartado de Script -->
+
+<!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
       <script>

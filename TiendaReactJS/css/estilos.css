@@ -15,3 +15,10 @@ i{
 .btn{
   background-color: #7DDA5A;
 }
+.container{
+    margin-top: 150px;
+}
+#contraseña{
+    text-align: center;
+    color: white;
+}

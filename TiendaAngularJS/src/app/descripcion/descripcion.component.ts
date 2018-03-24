@@ -1,28 +1,20 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { DataService } from '../data.service';
 
-import { DescripcionComponent } from './descripcion.component';
 
-describe('DescripcionComponent', () => {
-  let component: DescripcionComponent;
-  let fixture: ComponentFixture<DescripcionComponent>;
+@Component({
+  selector: 'app-descripcion',
+  templateUrl: './descripcion.component.html',
+  styleUrls: ['./descripcion.component.css']
+})
+export class DescripcionComponent implements OnInit {
+  data:Object;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ DescripcionComponent ]
-    })
-    .compileComponents();
-  }));
+  constructor(private router:ActivatedRoute,private dataService:DataService) { }
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DescripcionComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  ngOnInit() {
+  	this.data=this.dataService.getBusqueda(this.router.snapshot.params['id'])
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+}

@@ -1,0 +1,20 @@
+<h3>Crear una cuenta de usuario</h3>
+<form [formGroup]="myForm" (ngSubmit)="onSingnup()">
+  <div class="form-group">
+    <label for="email">Correo Electrolico</label>
+    <input formControlName="email" type="email" id="email" #email class="form-control">
+    <span *ngIf="!email.pristine && email.errors != null && email.errors['noEmail']">La direccion de Correo no es valida</span>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input formControlName="password" type="password" id="password" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="confirm-password">Confirmar Contraseña</label>
+    <input formControlName="confirm-password" type="password" id="confirm-password" #confirmPassword class="form-control">
+    <span *ngIf="!confirmPassword.pristine && confirmPassword.errors != null && confirmPassword.errors['passwordsNotMatch']">Passwords do not match</span>
+  </div>
+  <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">Registrarse</button>
+</form>

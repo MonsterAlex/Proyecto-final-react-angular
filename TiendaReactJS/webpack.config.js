@@ -1,29 +1,32 @@
-var config = {
-  entry: './main.js',
+'use strict';
 
-  output: {
-    path:'./',
-    filename: 'index.js',
-  },
+const path = require('path');
+const args = require('minimist')(process.argv.slice(2));
 
-  devServer: {
-    inline: true,
-    port: 8080
-  },
+// List of allowed environments
+const allowedEnvs = ['dev', 'dist', 'test'];
 
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
+// Set the correct environment
+let env;
+if (args._.length > 0 && args._.indexOf('start') !== -1) {
+  env = 'test';
+} else if (args.env) {
+  env = args.env;
+} else {
+  env = 'dev';
+}
+process.env.REACT_WEBPACK_ENV = env;
 
-        query: {
-          presets: ['es2015', 'react']
-        }
-      }
-    ]
-  }
+/**
+ * Build the webpack configuration
+ * @param  {String} wantedEnv The wanted environment
+ * @return {Object} Webpack config
+ */
+function buildConfig(wantedEnv) {
+  let isValid = wantedEnv && wantedEnv.length > 0 && allowedEnvs.indexOf(wantedEnv) !== -1;
+  let validEnv = isValid ? wantedEnv : 'dev';
+  let config = require(path.join(__dirname, 'cfg/' + validEnv));
+  return config;
 }
 
-module.exports = config;
+module.exports = buildConfig(env);
